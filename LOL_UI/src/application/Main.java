@@ -2,6 +2,7 @@ package application;
 	
 import java.io.IOException;
 
+import db.db;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -21,6 +22,8 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		db myDB = new db();
+		myDB.connect();
 		launch(args);
 	}
 }
