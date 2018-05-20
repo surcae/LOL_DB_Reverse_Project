@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#82c3ff" height="431.0" layoutX="-17.0" layoutY="-15.0" strokeType="INSIDE" width="582.0">
+         <stroke>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </stroke>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="359.0" layoutX="25.0" layoutY="21.0" stroke="WHITE" strokeType="INSIDE" width="511.0" />
+      <Text layoutX="45.0" layoutY="62.0" stroke="WHITE" strokeType="OUTSIDE" text="UserName" textAlignment="CENTER" underline="true" wrappingWidth="139.12109375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField layoutX="68.0" layoutY="73.0" prefHeight="54.0" prefWidth="314.0" />
+      <Text layoutX="68.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="CENTER" underline="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField layoutX="68.0" layoutY="218.0" prefHeight="54.0" prefWidth="314.0" />
+      <Button layoutX="68.0" layoutY="298.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="77.0" text="LOGIN" textAlignment="CENTER" />
+   </children>
+</Pane>
