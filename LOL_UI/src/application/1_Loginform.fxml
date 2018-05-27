@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="560.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#82c3ff" height="431.0" layoutX="-17.0" layoutY="-15.0" strokeType="INSIDE" width="582.0">
          <stroke>

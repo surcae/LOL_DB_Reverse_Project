@@ -1,20 +1,37 @@
 package db;
 import java.sql.*;
 public class db {
-	String url = "jdbc:mysql://127.0.0.1/?useSSL=false&user=root&";
 	private Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
 	
 	public void connect() {
 		try {
-			Class.forName("com.mysql.jdc.Driver");
+			System.out.println( System.getProperties());
+			Class.forName("com.mysql.jdbc.Driver");
+
 			System.out.println("드라이버 연결 굿");
 			
-			conn = DriverManager.getConnection(url);
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:4306/?autoReconnect=true&useSSL=false", "root", "root");
 			System.out.println("db 접속 성공");
 			
 			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SHOW DATABASES");
+
+
+
+			if (stmt.execute("SHOW DATABASES")) {
+
+				rs = stmt.getResultSet();
+
+			}
+			while (rs.next()) {
+
+				String str = rs.getNString(1);
+
+				System.out.println(str);
+
+			}
 		}
 		catch(ClassNotFoundException cnfe) {
 			cnfe.printStackTrace();
@@ -27,14 +44,5 @@ public class db {
 			if(stmt!=null) try { stmt.close();} catch(SQLException se) {}
 			if(rs!=null) try { rs.close();} catch(SQLException se) {}
 		}
-	}
-	
-	
-	
-	public String geturl() {
-		return url;
-	}
-	public void seturl(String _string) {
-		url = _string;
 	}
 }
