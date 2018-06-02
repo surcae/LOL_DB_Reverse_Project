@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="380.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <children>
+      <ImageView fx:id="bg" fitHeight="448.0" fitWidth="690.0" layoutX="-155.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/back.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="logo" fitHeight="85.0" fitWidth="240.0" layoutX="21.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="status" fitHeight="57.0" fitWidth="53.0" layoutX="285.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/wifig.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="b5" fitHeight="43.0" fitWidth="79.0" layoutX="272.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/i_db.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="b1" fitHeight="76.0" fitWidth="104.0" layoutX="14.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/i_search.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="b2" fitHeight="76.0" fitWidth="104.0" layoutX="138.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/i_connect.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="b3" fitHeight="76.0" fitWidth="104.0" layoutX="260.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/i_query.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="b4" fitHeight="76.0" fitWidth="104.0" layoutX="14.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/i_BOT.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="textarea1" layoutX="137.0" layoutY="244.0" prefHeight="125.0" prefWidth="229.0" />
+   </children>
+</Pane>

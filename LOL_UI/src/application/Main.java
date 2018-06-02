@@ -10,18 +10,30 @@ import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
-	
+	private static db myDB;
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("1_Loginform.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("2_Mainform.fxml"));
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("롤 디비 테스트 프로젝트");
 		primaryStage.show();
 	}
 	
 	public static void main(String[] args) {
-		db myDB = new db();
-		myDB.connect();
-		launch(args);
+		try {
+			myDB = new db();
+			getMyDB().connect();
+			launch(args);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+		
+		}
+	}
+
+	public static db getMyDB() {
+		return myDB;
 	}
 }

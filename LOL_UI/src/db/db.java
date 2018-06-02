@@ -4,7 +4,9 @@ public class db {
 	private Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	
+	public void disconnect() {
+		
+	}
 	public void connect() {
 		try {
 			System.out.println( System.getProperties());
