@@ -17,7 +17,7 @@ public class Main extends Application {
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("롤 디비 테스트 프로젝트");
 		primaryStage.show();
-	}
+	}	
 	
 	public static void main(String[] args) {
 		try {
