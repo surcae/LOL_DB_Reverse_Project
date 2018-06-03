@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="bg" fitHeight="417.0" fitWidth="738.0" layoutX="-161.0" layoutY="-17.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/back.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="logo" fitHeight="86.0" fitWidth="180.0" layoutX="14.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="BOTID" layoutX="244.0" layoutY="53.0" prefHeight="26.0" prefWidth="101.0" text="BOT 설정" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="label1" layoutX="20.0" layoutY="145.0" prefHeight="26.0" prefWidth="122.0" text="랜덤값 최대치" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="label11" layoutX="25.0" layoutY="191.0" prefHeight="26.0" prefWidth="111.0" text="초당 만들어질 게임 수" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="HYPost-Light" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="label12" layoutX="25.0" layoutY="232.0" prefHeight="26.0" prefWidth="111.0" text="쓰레드 갯수" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField layoutX="151.0" layoutY="146.0" promptText="0" />
+      <TextField layoutX="151.0" layoutY="193.0" promptText="0" />
+      <TextField layoutX="151.0" layoutY="234.0" promptText="0" />
+      <Button layoutX="14.0" layoutY="318.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="62.0" text="Run" />
+      <Button layoutX="81.0" layoutY="318.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="62.0" text="Stop" />
+      <Label fx:id="label121" layoutX="220.0" layoutY="332.0" prefHeight="26.0" prefWidth="87.0" text="현재 상태" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="HYGraphic-Medium" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="26.0" fitWidth="20.0" layoutX="317.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/off.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

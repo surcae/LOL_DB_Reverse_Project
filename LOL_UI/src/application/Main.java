@@ -29,7 +29,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		finally {
-		
+			//연결 해제
 		}
 	}
 

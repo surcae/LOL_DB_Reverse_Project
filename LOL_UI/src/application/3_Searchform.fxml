@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="bg" fitHeight="417.0" fitWidth="738.0" layoutX="-161.0" layoutY="-17.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/back.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="logo" fitHeight="86.0" fitWidth="180.0" layoutX="14.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="searchid" layoutX="194.0" layoutY="55.0" prefHeight="23.0" prefWidth="118.0" />
+      <Button fx:id="Search2" layoutX="318.0" layoutY="55.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Search" />
+      <Label fx:id="info" layoutX="20.0" layoutY="100.0" prefHeight="26.0" prefWidth="128.0" text="Information" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="info2" layoutX="20.0" layoutY="135.0" prefHeight="210.0" prefWidth="344.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="tier" fitHeight="98.0" fitWidth="180.0" layoutX="248.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/challenger.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="20.0" layoutY="357.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="157.0" text="Save to DB" />
+   </children>
+</Pane>
