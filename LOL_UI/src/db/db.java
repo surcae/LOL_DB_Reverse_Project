@@ -1,5 +1,6 @@
 package db;
 import java.sql.*;
+
 public class db {
 	private Connection conn = null;
 	Statement stmt = null;
@@ -9,12 +10,11 @@ public class db {
 	}
 	public void connect() {
 		try {
-			System.out.println( System.getProperties());
 			Class.forName("com.mysql.jdbc.Driver");
 
-			System.out.println("드라이버 연결 굿");
+			System.out.println("드라이버 연결");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:4306/?autoReconnect=true&useSSL=false", "root", "root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false", "root", "root");
 			System.out.println("db 접속 성공");
 			
 			stmt = conn.createStatement();
