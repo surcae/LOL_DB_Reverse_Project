@@ -9,13 +9,15 @@ import javafx.scene.Scene;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		//Init
+		//Initialize
 		SceneManager.getSceneManager().setrStage(primaryStage);
-		
-		//Init Parent
+		//Initialize Parent
 		SceneManager.getSceneManager().Initialize_Root();
 		
-		primaryStage.setScene(new Scene(SceneManager.getSceneManager().getArrForm(SceneManager.F_LOGIN)));
+		//Initialize Scene
+		SceneManager.getSceneManager().Initialize_Scene();
+		
+		primaryStage.setScene(SceneManager.getSceneManager().getScene(SceneManager.F_LOGIN));
 		primaryStage.setTitle("롤 디비 테스트 프로젝트");
 		primaryStage.show();
 	}	

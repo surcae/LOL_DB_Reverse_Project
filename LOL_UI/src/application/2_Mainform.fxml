@@ -47,6 +47,6 @@
             <Image url="@../../image/i_BOT.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="textarea1" layoutX="137.0" layoutY="244.0" prefHeight="125.0" prefWidth="229.0" />
+      <TextArea fx:id="textarea1" editable="false" layoutX="137.0" layoutY="244.0" prefHeight="125.0" prefWidth="229.0" />
    </children>
 </Pane>

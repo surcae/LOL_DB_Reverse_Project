@@ -37,6 +37,6 @@
             <Image url="@../../image/challenger.png" />
          </image>
       </ImageView>
-      <Button layoutX="20.0" layoutY="357.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="157.0" text="Save to DB" />
+      <Button layoutX="20.0" layoutY="350.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="157.0" text="Save to DB" />
    </children>
 </Pane>

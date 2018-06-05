@@ -4,6 +4,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 public class SceneManager {
 	// ΩÃ±€≈Ê
@@ -18,19 +19,26 @@ public class SceneManager {
 			return sceneManager;
 		}
 		
-		
-		
 	private Parent[] arrForm = new Parent[10];
-	public static int F_LOGIN = 0, F_MAINFORM = 1,
-			F_SEARCH = 2, F_CHATTING = 3, F_QUERYFORM = 4, F_BOTFORM = 5;
+	private Scene[] arrScene = new Scene[6];
+	
+	public Scene[] getArrScene() {
+		return arrScene;
+	}
+	public Scene getScene(int s) {
+		return arrScene[s];
+	}
+	public void setArrScene(Scene[] arrScene) {
+		this.arrScene = arrScene;
+	}
+
+	public static int F_LOGIN = 0, F_MAINFORM = 1, F_SEARCH = 2, F_CHATTING = 3, F_QUERYFORM = 4, F_BOTFORM = 5;
 	private Stage rStage;
-	
-	
 	
 	public Parent[] getArrForm() {
 			return arrForm;
 		}
-	public Parent getArrForm(int s) {
+	public Parent getForm(int s) {
 		return arrForm[s];
 	}
 
@@ -59,5 +67,14 @@ public class SceneManager {
 		arrForm[index] = root; index++;
 		root = FXMLLoader.load(getClass().getResource("../application/6_Botform.fxml"));
 		arrForm[index] = root; index++;
+		
+		System.out.println("fxml load success");
 	}
+	
+	public void Initialize_Scene() {
+		int index = 0;
+		for(index = 0; index < 6; ++index)
+			arrScene[index] = new Scene(arrForm[index]);
+	}
+	
 }
