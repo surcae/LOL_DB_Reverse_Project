@@ -19,7 +19,7 @@ public class DBManager {
 	// 매개변수와 메소드들...
 	private db Database;
 	
-	public void connectToDB() {
-		Database.connect();
+	public void connectToDB(String string, String string2) {
+		Database.connect(string, string2);
 	}
 }

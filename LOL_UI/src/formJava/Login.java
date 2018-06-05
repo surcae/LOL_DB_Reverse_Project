@@ -1,27 +1,30 @@
 package formJava;
 
 import Background.DBManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.text.Text;
-
+import javafx.scene.control.TextField;
 // 따로 스키마 만든거에 접속한다. 이 UI 관리 계정을 담는 스키마임
 
 public class Login {
 	DBManager dbManager = DBManager.getDBManager();
 	public Login() {
-		dbManager.connectToDB(); 
+		
 	}
 	@FXML
-	private Text ID;
+	private TextField ID;
 	
 	@FXML
-	private Text PW;
+	private TextField PW;
 	
 	@FXML
 	private void doLogin() {
-		System.out.println("안녕안녕");
+		if(ID.getText().length() == 0 || PW.getText().length() == 0) {
+			return;
+		}
+		else {
+			// TODO: Connect and Open form -> MainForm
+			dbManager.connectToDB(ID.getText(), PW.getText());		
+		}
 	}
 	
 }

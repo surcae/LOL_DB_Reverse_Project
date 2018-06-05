@@ -8,13 +8,13 @@ public class db {
 	public void disconnect() {
 		
 	}
-	public void connect() {
+	public void connect(String id, String pw) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			System.out.println("드라이버 연결");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false", "root", "root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:4306/?autoReconnect=true&useSSL=false", id, pw);
 			System.out.println("db 접속 성공");
 			
 			stmt = conn.createStatement();

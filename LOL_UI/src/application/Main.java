@@ -1,20 +1,21 @@
 package application;
 
 import java.io.IOException;
-import db.db;
-import formJava.BOTform;
+import Background.SceneManager;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.Parent;
-import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("1_Loginform.fxml"));
-		primaryStage.setScene(new Scene(root));
+		//Init
+		SceneManager.getSceneManager().setrStage(primaryStage);
+		
+		//Init Parent
+		SceneManager.getSceneManager().Initialize_Root();
+		
+		primaryStage.setScene(new Scene(SceneManager.getSceneManager().getArrForm(SceneManager.F_LOGIN)));
 		primaryStage.setTitle("롤 디비 테스트 프로젝트");
 		primaryStage.show();
 	}	

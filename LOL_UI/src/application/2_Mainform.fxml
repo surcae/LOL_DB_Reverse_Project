@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="380.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<Pane fx:controller="formJava.MainForm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="380.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <children>
       <ImageView fx:id="bg" fitHeight="448.0" fitWidth="690.0" layoutX="-155.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
