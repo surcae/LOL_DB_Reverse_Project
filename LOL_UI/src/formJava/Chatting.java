@@ -1,7 +1,18 @@
 package formJava;
 
-public class Chatting {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.Initializable;
+
+public class Chatting implements Initializable{
 	public Chatting() {
+		
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
 		
 	}
 }

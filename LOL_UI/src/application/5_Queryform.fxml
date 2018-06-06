@@ -21,13 +21,13 @@
             <Image url="@../../image/logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="querysend" layoutX="25.0" layoutY="345.0" prefHeight="23.0" prefWidth="234.0" />
-      <Button fx:id="Send" layoutX="289.0" layoutY="345.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Send" />
+      <TextField fx:id="queryField" layoutX="25.0" layoutY="345.0" prefHeight="23.0" prefWidth="234.0" />
+      <Button fx:id="SendButton" layoutX="289.0" layoutY="345.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Send" />
       <Label fx:id="Query" layoutX="261.0" layoutY="53.0" prefHeight="26.0" prefWidth="65.0" text="Query" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextArea fx:id="querylog" editable="false" layoutX="25.0" layoutY="108.0" prefHeight="229.0" prefWidth="320.0" />
+      <TextArea fx:id="Querylog" editable="false" layoutX="25.0" layoutY="108.0" prefHeight="229.0" prefWidth="320.0" />
    </children>
 </Pane>

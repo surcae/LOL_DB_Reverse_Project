@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 // 따로 스키마 만든거에 접속한다. 이 UI 관리 계정을 담는 스키마임
-
+// 다른 폼들은 초기화 형식으로 추상화됨
 public class Login {
 	SceneManager sceneManager = SceneManager.getSceneManager();
 	DBManager dbManager = DBManager.getDBManager();
