@@ -21,7 +21,7 @@ public class SceneManager {
 		
 	private Parent[] arrForm = new Parent[10];
 	private Scene[] arrScene = new Scene[6];
-	
+	private Stage[] arrStage = new Stage[6];
 	public Scene[] getArrScene() {
 		return arrScene;
 	}
@@ -33,8 +33,13 @@ public class SceneManager {
 	}
 
 	public static int F_LOGIN = 0, F_MAINFORM = 1, F_SEARCH = 2, F_CHATTING = 3, F_QUERYFORM = 4, F_BOTFORM = 5;
-	private Stage rStage;
-	
+	/*private Stage rStage;
+	public Stage getrStage() {
+		return rStage;
+	}
+	public void setrStage(Stage rStage) {
+		this.rStage = rStage;
+	}*/
 	public Parent[] getArrForm() {
 			return arrForm;
 		}
@@ -45,13 +50,16 @@ public class SceneManager {
 	public void setArrForm(Parent[] arrForm) {
 		this.arrForm = arrForm;
 	}
-	public Stage getrStage() {
-		return rStage;
-	}
-	public void setrStage(Stage rStage) {
-		this.rStage = rStage;
-	}
+	
+	public void setInitStage(Stage _stage) {
+		arrStage[F_LOGIN] = _stage;
 		
+		// made Another Stage
+		for(int i = 1; i < 6; ++i)
+		{
+			arrStage[i] = new Stage();
+		}
+	}
 	public void Initialize_Root() throws IOException {
 		int index = 0;
 		Parent root;
@@ -75,6 +83,17 @@ public class SceneManager {
 		int index = 0;
 		for(index = 0; index < 6; ++index)
 			arrScene[index] = new Scene(arrForm[index]);
+	}
+
+	public Stage[] getArrStage() {
+		return arrStage;
+	}
+	
+	public Stage getStage(int s) {
+		return arrStage[s];
+	}
+	public void setArrStage(Stage[] arrStage) {
+		this.arrStage = arrStage;
 	}
 	
 }

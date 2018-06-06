@@ -19,6 +19,7 @@ public class Login {
 	@FXML
 	private TextField PW;
 	
+	@SuppressWarnings("static-access")
 	@FXML
 	private void doLogin() {
 		if(ID.getText().length() == 0 || PW.getText().length() == 0) {
@@ -27,8 +28,9 @@ public class Login {
 		else {
 			// TODO: Connect and Open form -> MainForm
 			dbManager.connectToDB(ID.getText(), PW.getText());
-			sceneManager.getrStage().setScene(sceneManager.getScene(sceneManager.F_MAINFORM));
-			sceneManager.getrStage().show();
+			SceneManager.getSceneManager().getStage(SceneManager.F_MAINFORM).setScene(sceneManager.getScene(sceneManager.F_MAINFORM));
+			SceneManager.getSceneManager().getStage(SceneManager.F_MAINFORM).show();
+			SceneManager.getSceneManager().getStage(SceneManager.F_LOGIN).hide();
 		}
 	}
 	

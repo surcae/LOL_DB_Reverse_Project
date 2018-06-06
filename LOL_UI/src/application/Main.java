@@ -10,16 +10,16 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		//Initialize
-		SceneManager.getSceneManager().setrStage(primaryStage);
+		SceneManager.getSceneManager().setInitStage(primaryStage);
 		//Initialize Parent
 		SceneManager.getSceneManager().Initialize_Root();
 		
 		//Initialize Scene
 		SceneManager.getSceneManager().Initialize_Scene();
 		
-		primaryStage.setScene(SceneManager.getSceneManager().getScene(SceneManager.F_LOGIN));
-		primaryStage.setTitle("롤 디비 테스트 프로젝트");
-		primaryStage.show();
+		SceneManager.getSceneManager().getStage(SceneManager.F_LOGIN).setScene(SceneManager.getSceneManager().getScene(SceneManager.F_LOGIN));
+		SceneManager.getSceneManager().getStage(SceneManager.F_LOGIN).setTitle("롤 디비 테스트 프로젝트");
+		SceneManager.getSceneManager().getStage(SceneManager.F_LOGIN).show();
 	}	
 	
 	public static void main(String[] args) {
