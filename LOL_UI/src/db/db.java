@@ -47,9 +47,9 @@ public class db {
 			se.printStackTrace();
 		}
 		finally {
-			if(conn!=null) try { conn.close();} catch(SQLException se) {}
-			if(stmt!=null) try { stmt.close();} catch(SQLException se) {}
-			if(rs!=null) try { rs.close();} catch(SQLException se) {}
+			//if(conn!=null) try { conn.close();} catch(SQLException se) {}
+			//if(stmt!=null) try { stmt.close();} catch(SQLException se) {}
+			//if(rs!=null) try { rs.close();} catch(SQLException se) {}
 		}
 	}
 }
