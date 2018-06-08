@@ -1,5 +1,9 @@
 package Background;
 
+import java.sql.ResultSet;
+
+import com.mysql.fabric.xmlrpc.base.Data;
+
 import db.db;
 
 public class DBManager {
@@ -40,5 +44,20 @@ public class DBManager {
 
 	public void setPW(String pW) {
 		PW = pW;
+	}
+	
+	public Boolean Execute(String arg) {
+		// TODO: 쿼리문을 직접 수행할 수 있는 메소드다. True or False 반환
+		return Database.Execute(arg);
+	}
+	
+	public ResultSet ExecuteQuery(String arg) {
+		// TODO: 보통 Select 할 때 많이 쓰고 ResultSet 을 리턴해준다.
+		return Database.ExecuteQuery(arg);
+	}
+	
+	public void ExecuteUpdate(String arg) {
+		// TODO: Insert, update, delete 등 기타 Create, drop 등 여러 DML SELECT 제외를 쓸 때 많이 쓴다.
+		Database.ExecuteUpdate(arg);
 	}
 }

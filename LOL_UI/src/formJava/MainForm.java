@@ -25,10 +25,6 @@ public class MainForm implements Initializable{
 	
 	public MainForm() {
 	}
-	
-	public void show(int sceneNum) {
-		
-	}
 
 	@SuppressWarnings("static-access")
 	@Override
