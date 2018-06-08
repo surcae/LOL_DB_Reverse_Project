@@ -20,12 +20,13 @@ public class db implements Initializable{
 		}
 		return false;
 	}
-	public void ExecuteUpdate(String arg) {
+	public int ExecuteUpdate(String arg) {
 		try {
-			statement.executeUpdate(arg);
+			return statement.executeUpdate(arg);
 		}catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			return 0;
 		}
 	}
 	
@@ -39,8 +40,6 @@ public class db implements Initializable{
 		}
 		return resultSet;
 	}
-	
-	
 	
 	public Connection getConn() {
 		return conn;
@@ -72,9 +71,9 @@ public class db implements Initializable{
 		if(statement!=null) try { statement.close();} catch(SQLException se) {}
 		if(resultSet!=null) try { resultSet.close();} catch(SQLException se) {}
 	}
-	public void connect(String id, String pw) {
+	public void connect(String id, String pw) throws SQLException {
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false", id, pw);
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:4306/?autoReconnect=true&useSSL=false", id, pw);
 			System.out.println("DB 접속 성공");
 			
 			DBManager.getDBManager().setID(id);
@@ -98,6 +97,7 @@ public class db implements Initializable{
 		    }
 		}
 		finally {
+			statement.execute("USE LOL_DB");
 			//if(conn!=null) try { conn.close();} catch(SQLException se) {}
 			//if(statement!=null) try { statement.close();} catch(SQLException se) {}
 			//if(resultSet!=null) try { resultSet.close();} catch(SQLException se) {}

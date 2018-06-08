@@ -1,9 +1,7 @@
 package Background;
 
 import java.sql.ResultSet;
-
-import com.mysql.fabric.xmlrpc.base.Data;
-
+import java.sql.SQLException;
 import db.db;
 
 public class DBManager {
@@ -24,7 +22,12 @@ public class DBManager {
 	private db Database;
 	private String ID, PW;
 	public void connectToDB(String string, String string2) {
-		Database.connect(string, string2);
+		try {
+			Database.connect(string, string2);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void disconnectfromDB() {
 		Database.disconnect();
@@ -56,8 +59,8 @@ public class DBManager {
 		return Database.ExecuteQuery(arg);
 	}
 	
-	public void ExecuteUpdate(String arg) {
+	public int ExecuteUpdate(String arg) {
 		// TODO: Insert, update, delete 등 기타 Create, drop 등 여러 DML SELECT 제외를 쓸 때 많이 쓴다.
-		Database.ExecuteUpdate(arg);
+		return Database.ExecuteUpdate(arg);
 	}
 }
