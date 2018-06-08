@@ -74,31 +74,28 @@ public class db implements Initializable{
 	}
 	public void connect(String id, String pw) {
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:4306/?autoReconnect=true&useSSL=false", id, pw);
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false", id, pw);
 			System.out.println("DB 접속 성공");
 			
 			DBManager.getDBManager().setID(id);
 			DBManager.getDBManager().setPW(pw);
 			
 			statement = conn.createStatement();
-			resultSet = statement.executeQuery("SHOW DATABASES");
 			
-			int c = statement.executeUpdate("CREATE DATABASE LOL_DB");
-		      System.out.println("Table have been created.");
-		      System.out.println(c+" Row(s) have been affected");
-
-			if (statement.execute("SHOW DATABASES")) {
-
-				resultSet = statement.getResultSet();
-
-			}
-			while (resultSet.next()) {
-				String str = resultSet.getNString(1);
-				System.out.println(str);
-			}
+			//resultSet = statement.executeQuery("SELECT * FROM SYSCAT.TABLES WHERE TABSCHEMA='LOL_DB");
+			
+			statement.executeUpdate("CREATE DATABASE LOL_DB");
+			System.out.println("Database have been created!");
 		}
 		catch(SQLException se) {
-			se.printStackTrace();
+			if (se.getErrorCode() == 1007) {
+		        // Database already exists error
+		        System.out.println(se.getMessage());
+		        System.out.println("이미 존재하니 넘어갑니다.");
+		    } else {
+		        // Some other problems, e.g. Server down, no permission, etc
+		    	se.printStackTrace();
+		    }
 		}
 		finally {
 			//if(conn!=null) try { conn.close();} catch(SQLException se) {}
