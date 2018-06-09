@@ -22,6 +22,11 @@ public class Search implements Initializable{
 	@FXML private TextField searchid;
 	@FXML private ImageView tier;
 	@FXML private Label info2;
+	
+	ApiConfig config = new ApiConfig().setKey("RGAPI-3a5d08be-383a-4808-b6ed-60d4b9755c3f");
+	RiotApi api = new RiotApi(config);
+	Summoner summoner;
+	
 	public Search() {
 		
 	}
@@ -35,19 +40,21 @@ public class Search implements Initializable{
 			} catch (RiotApiException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+				System.out.println("해당 유저가 없습니다.");
 			}
 		});
 	}
 	
 	public void SearchWithAPI() throws RiotApiException {
-		ApiConfig config = new ApiConfig().setKey("RGAPI-b2ed6490-a2f7-438a-aa13-806dfb2e7227");
-		RiotApi api = new RiotApi(config);
-
-		Summoner summoner = api.getSummonerByName(Platform.KR, "surcae");
+		if(searchid.getText().equals(""))
+			return;
+		
+		summoner = api.getSummonerByName(Platform.KR, searchid.getText());
 		System.out.println("Name: " + summoner.getName());
 		System.out.println("Summoner ID: " + summoner.getId());
 		System.out.println("Account ID: " + summoner.getAccountId());
 		System.out.println("Summoner Level: " + summoner.getSummonerLevel());
 		System.out.println("Profile Icon ID: " + summoner.getProfileIconId());
+		System.out.println("RevisionDate: " + summoner.getRevisionDate());
 	}
 }

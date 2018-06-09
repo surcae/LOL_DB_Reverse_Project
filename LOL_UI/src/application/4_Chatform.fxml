@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:controller="formJava.Chatting" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="380.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="formJava.Chatting">
    <children>
       <ImageView fx:id="bg" fitHeight="417.0" fitWidth="738.0" layoutX="-161.0" layoutY="-17.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,11 +23,18 @@
       </ImageView>
       <TextField fx:id="send" layoutX="25.0" layoutY="345.0" prefHeight="23.0" prefWidth="234.0" />
       <Button fx:id="button" layoutX="289.0" layoutY="345.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Send" />
-      <Label fx:id="info" layoutX="261.0" layoutY="53.0" prefHeight="26.0" prefWidth="56.0" text="Chat" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="info" layoutX="194.0" layoutY="39.0" prefHeight="26.0" prefWidth="56.0" text="Chat" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       <TextArea fx:id="chatarea" editable="false" layoutX="25.0" layoutY="108.0" prefHeight="229.0" prefWidth="320.0" />
+      <TextField fx:id="SelectField" layoutX="250.0" layoutY="40.0" prefHeight="26.0" prefWidth="78.0" />
+      <Button fx:id="Pick" layoutX="331.0" layoutY="42.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="46.0" text="Pick" />
+      <Label fx:id="isVaild" layoutX="260.0" layoutY="77.0" prefHeight="26.0" prefWidth="78.0" text="Invaild" textAlignment="CENTER" textFill="#ff0000">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

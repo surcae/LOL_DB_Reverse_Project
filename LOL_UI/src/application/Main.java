@@ -1,6 +1,8 @@
 package application;
 
 import java.io.IOException;
+
+import Background.DBManager;
 import Background.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -22,6 +24,12 @@ public class Main extends Application {
 		SceneManager.getSceneManager().getStage(SceneManager.F_LOGIN).show();
 	}	
 	
+	@Override
+	public void stop(){
+	    System.out.println("Stage is closing");
+	    DBManager.getDBManager().Execute("DROP SCHEMA LOL_DB");
+	    // Save file
+	}
 	public static void main(String[] args) {
 		launch(args);
 	}

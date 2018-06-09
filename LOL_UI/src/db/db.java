@@ -13,10 +13,12 @@ public class db implements Initializable{
 	
 	public boolean Execute(String arg) {
 		try {
-			if(statement.execute(arg))
+			if(statement.execute(arg)) {
 				return true;
+			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+			return false;
 		}
 		return false;
 	}
@@ -25,7 +27,7 @@ public class db implements Initializable{
 			return statement.executeUpdate(arg);
 		}catch (SQLException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return 0;
 		}
 	}
@@ -36,7 +38,7 @@ public class db implements Initializable{
 			return resultSet;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		return resultSet;
 	}
@@ -73,7 +75,7 @@ public class db implements Initializable{
 	}
 	public void connect(String id, String pw) throws SQLException {
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false", id, pw);
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:4306/?autoReconnect=true&useSSL=false", id, pw);
 			System.out.println("DB 접속 성공");
 			
 			DBManager.getDBManager().setID(id);
@@ -85,6 +87,7 @@ public class db implements Initializable{
 			
 			statement.executeUpdate("CREATE DATABASE LOL_DB");
 			System.out.println("Database have been created!");
+			statement.execute("USE LOL_DB");
 		}
 		catch(SQLException se) {
 			if (se.getErrorCode() == 1007) {
@@ -93,8 +96,9 @@ public class db implements Initializable{
 		        System.out.println("이미 존재하니 넘어갑니다.");
 		    } else {
 		        // Some other problems, e.g. Server down, no permission, etc
-		    	se.printStackTrace();
+		    	se.getMessage();
 		    }
+			statement.execute("USE LOL_DB");
 		}
 		finally {
 			statement.execute("USE LOL_DB");

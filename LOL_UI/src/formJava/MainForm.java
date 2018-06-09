@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Background.DBManager;
+import Background.MessageReceiver;
 import Background.SceneManager;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -29,6 +30,7 @@ public class MainForm implements Initializable{
 	@SuppressWarnings("static-access")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		MessageReceiver.getMessageReceiver().setTextArea(textarea1);
 		// 마우스 클릭시 폼 보여주기
 		b1.setOnMouseClicked(e-> {
 			sceneManager.getStage(sceneManager.F_SEARCH).setScene(sceneManager.getScene(sceneManager.F_SEARCH));
