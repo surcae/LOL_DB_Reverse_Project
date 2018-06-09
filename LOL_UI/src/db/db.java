@@ -73,7 +73,7 @@ public class db implements Initializable{
 	}
 	public void connect(String id, String pw) throws SQLException {
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:4306/?autoReconnect=true&useSSL=false", id, pw);
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false", id, pw);
 			System.out.println("DB 접속 성공");
 			
 			DBManager.getDBManager().setID(id);

@@ -63,4 +63,7 @@ public class DBManager {
 		// TODO: Insert, update, delete 등 기타 Create, drop 등 여러 DML SELECT 제외를 쓸 때 많이 쓴다.
 		return Database.ExecuteUpdate(arg);
 	}
+	public ResultSet getResultSet() {
+		return Database.getResultSet();
+	}
 }
