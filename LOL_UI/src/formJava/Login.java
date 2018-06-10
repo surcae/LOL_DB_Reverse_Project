@@ -116,7 +116,14 @@ public class Login {
 		//		"	SET  User.IP=User.IP+100 WHERE new.Userid=User.Userid\r\n" + 
 		//		"END\r\n" + 
 		//		""); // 게임 끝나면 자동 돈 들어옴
-		
+		//dbManager.ExecuteUpdate("CREATE TRIGGER REWARD_TO_Fulllevl AFTER INSERT ON USER \r\n" + 
+		//		"FOR EACH ROW\r\n" + 
+		//		"WHEN(new.level==30 && new.flag==0)\r\n" + 
+		//		"BEGIN\r\n" + 
+		//		"	SET new.IP= new.IP+10000;\r\n" + 
+		//		"	SET new.flag=1;\r\n" + 
+		//		"END\r\n" + 
+		//		"");
 		//System.out.println("트리거 생성 완료");
 		ItemList itemList = null;
 		try {
