@@ -1,15 +1,13 @@
 package formJava;
 
-import net.rithms.riot.api.ApiConfig;
-import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
-import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 import net.rithms.riot.constant.Platform;
-import com.google.*;
+
+import Background.APIManager;
+import Background.DBManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -23,10 +21,9 @@ public class Search implements Initializable{
 	@FXML private ImageView tier;
 	@FXML private Label info2;
 	
-	ApiConfig config = new ApiConfig().setKey("RGAPI-3a5d08be-383a-4808-b6ed-60d4b9755c3f");
-	RiotApi api = new RiotApi(config);
-	Summoner summoner;
-	
+	String Name, Account, ID, Level;
+	boolean isSelected = false;
+	DBManager dbManager = DBManager.getDBManager();
 	public Search() {
 		
 	}
@@ -40,21 +37,57 @@ public class Search implements Initializable{
 			} catch (RiotApiException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+				isSelected = false;
+				Name = null;
+				ID = null;
+				Level = null;
+				Account = null;
 				System.out.println("해당 유저가 없습니다.");
 			}
 		});
+		
+		saveToDB.setOnMouseClicked(e->{
+			try {
+				net.rithms.riot.api.endpoints.static_data.dto.Champion champion = APIManager.getAPIManager().getApi().getDataChampion(Platform.KR, 10);
+				System.out.println(champion.toString()); // 10: 케일
+			} catch (RiotApiException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			SaveDB();
+		});
 	}
 	
+	private void SaveDB() {
+		// TODO Auto-generated method stub
+		if(!isSelected)
+			return;
+		
+		dbManager.ExecuteUpdate("INSERT INTO USER(UserID, Name, AccountID, Level) VALUES ('"+ID+"', '"+Name+"', '"+Account+"', '"+Level+"');");
+		System.out.println("SaveToDB Complete!");
+	}
+
 	public void SearchWithAPI() throws RiotApiException {
 		if(searchid.getText().equals(""))
 			return;
+		info2.setText("");
 		
-		summoner = api.getSummonerByName(Platform.KR, searchid.getText());
-		System.out.println("Name: " + summoner.getName());
-		System.out.println("Summoner ID: " + summoner.getId());
-		System.out.println("Account ID: " + summoner.getAccountId());
-		System.out.println("Summoner Level: " + summoner.getSummonerLevel());
-		System.out.println("Profile Icon ID: " + summoner.getProfileIconId());
-		System.out.println("RevisionDate: " + summoner.getRevisionDate());
+		APIManager.getAPIManager().setSummoner(APIManager.getAPIManager().getApi().getSummonerByName(Platform.KR, searchid.getText()));
+		System.out.println("Name: " + APIManager.getAPIManager().getSummoner().getName());
+		System.out.println("Summoner ID: " + APIManager.getAPIManager().getSummoner().getId());
+		System.out.println("Account ID: " + APIManager.getAPIManager().getSummoner().getAccountId());
+		System.out.println("Summoner Level: " + APIManager.getAPIManager().getSummoner().getSummonerLevel());
+		
+		info2.setText(info2.getText() + "Name: " + APIManager.getAPIManager().getSummoner().getName());
+		info2.setText(info2.getText() + "\nSummoner ID: " + APIManager.getAPIManager().getSummoner().getId());
+		info2.setText(info2.getText() + "\nAccount ID: " + APIManager.getAPIManager().getSummoner().getAccountId());
+		info2.setText(info2.getText() + "\nSummoner Level: " + APIManager.getAPIManager().getSummoner().getSummonerLevel());
+		
+		Name = APIManager.getAPIManager().getSummoner().getName();
+		ID = String.valueOf(APIManager.getAPIManager().getSummoner().getId());
+		Account = String.valueOf(APIManager.getAPIManager().getSummoner().getAccountId());
+		Level = String.valueOf(APIManager.getAPIManager().getSummoner().getSummonerLevel());
+		
+		isSelected = true;
 	}
 }

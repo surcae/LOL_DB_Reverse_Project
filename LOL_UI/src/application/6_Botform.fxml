@@ -25,7 +25,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="label1" layoutX="20.0" layoutY="145.0" prefHeight="26.0" prefWidth="122.0" text="랜덤값 최대치" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="label1" layoutX="20.0" layoutY="145.0" prefHeight="26.0" prefWidth="122.0" text="경험치 최대치" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
