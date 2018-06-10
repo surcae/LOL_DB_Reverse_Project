@@ -102,29 +102,31 @@ public class Login {
 				"ENGINE = InnoDB;");
 		System.out.println("게임결과 테이블 생성 완료");
 		
-		//dbManager.ExecuteUpdate("CREATE TRIGGER Game_Result_Update AFTER INSERT ON GameResult\r\n" + 
-		//		"FOR EACH ROW\r\n" + 
-		//		"WHEN(TRUE)\r\n" + 
-		//		"BEGIN\r\n" + 
-		//		"	SET  User.IP=User.IP+100 WHERE new.Userid=User.Userid\r\n" + 
-		//		"END\r\n" + 
-		//		""); // 게임 끝나면 자동 돈 들어옴
-		//dbManager.ExecuteUpdate("CREATE TRIGGER LEVELUP AFTER INSERT ON GameResult\r\n" + 
-		//		"FOR EACH ROW\r\n" + 
-		//		"WHEN(User.UserID == new.UserID)\r\n" + 
-		//		"BEGIN\r\n" + 
-		//		"	SET  User.IP=User.IP+100 WHERE new.Userid=User.Userid\r\n" + 
-		//		"END\r\n" + 
-		//		""); // 게임 끝나면 자동 돈 들어옴
-		//dbManager.ExecuteUpdate("CREATE TRIGGER REWARD_TO_Fulllevl AFTER INSERT ON USER \r\n" + 
-		//		"FOR EACH ROW\r\n" + 
-		//		"WHEN(new.level==30 && new.flag==0)\r\n" + 
-		//		"BEGIN\r\n" + 
-		//		"	SET new.IP= new.IP+10000;\r\n" + 
-		//		"	SET new.flag=1;\r\n" + 
-		//		"END\r\n" + 
-		//		"");
-		//System.out.println("트리거 생성 완료");
+		/*
+		dbManager.ExecuteUpdate("CREATE TRIGGER Game_Result_Update AFTER INSERT ON GameResult\r\n" + 
+				"FOR EACH ROW\r\n" + 
+				"WHEN(TRUE)\r\n" + 
+				"BEGIN\r\n" + 
+				"	SET  User.IP=User.IP+100 WHERE new.Userid=User.Userid\r\n" + 
+				"END\r\n" + 
+				""); // 게임 끝나면 자동 돈 들어옴
+		dbManager.ExecuteUpdate("CREATE TRIGGER ADDEXP AFTER INSERT ON GameResult\r\n" + 
+				"FOR EACH ROW\r\n" + 
+				"WHEN(User.UserID == new.UserID)\r\n" + 
+				"BEGIN\r\n" + 
+				"	SET  User.exp=User.exp+100 WHERE new.Userid=User.Userid\r\n" + 
+				"END\r\n" + 
+				""); // 게임 끝나면 경험치 증가
+		dbManager.ExecuteUpdate("CREATE TRIGGER REWARD_TO_Fulllevl AFTER UPDATE ON USER \r\n" + 
+				"FOR EACH ROW\r\n" + 
+				"WHEN(new.level==30 && new.flag==0)\r\n" + 
+				"BEGIN\r\n" + 
+				"	SET new.IP= new.IP+10000;\r\n" + 
+				"	SET new.flag=1;\r\n" + 
+				"END\r\n" + 
+				""); // 만렙 달성시 10000 머니 증정
+		*/
+		System.out.println("트리거 생성 완료");
 		ItemList itemList = null;
 		try {
 			itemList = APIManager.getAPIManager().getApi().getDataItemList(Platform.KR);
