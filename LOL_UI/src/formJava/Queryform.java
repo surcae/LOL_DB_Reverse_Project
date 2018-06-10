@@ -36,12 +36,17 @@ public class Queryform implements Initializable{
 			String tmp = queryField.getText();
 			queryField.setText("");
 			Querylog.setText(Querylog.getText() + tmp);
-			Boolean isSuccess = dbManager.Execute(tmp);
+			ResultSet resultSet = dbManager.ExecuteQuery(tmp);
 			
-			if(isSuccess)
-				Querylog.setText(Querylog.getText() + "\nQuery Success!\n");
-			else
-				Querylog.setText(Querylog.getText() + "\nQuery Failed!\n");
+			try {
+				while(resultSet.next()) {
+					Querylog.setText(Querylog.getText() + resultSet.getString(1)+"\n");
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			
 			textArea.setText(textArea.getText() + "\n"
 					+ MessageReceiver.getMessageReceiver().getSdf().format(MessageReceiver.getMessageReceiver().getGc().getTime()) + " QueryForm Äõ¸®¹® Àü¼ÛµÊ");
