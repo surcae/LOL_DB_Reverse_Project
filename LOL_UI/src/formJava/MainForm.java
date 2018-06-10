@@ -20,7 +20,6 @@ public class MainForm implements Initializable{
 	
 	@FXML
 	private TextArea textarea1;
-	
 	private SceneManager sceneManager = SceneManager.getSceneManager();
 	private boolean DBConnectCheck = true;
 	
@@ -30,6 +29,7 @@ public class MainForm implements Initializable{
 	@SuppressWarnings("static-access")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		MessageReceiver.getMessageReceiver().setTextArea(textarea1);
 		// 마우스 클릭시 폼 보여주기
 		b1.setOnMouseClicked(e-> {

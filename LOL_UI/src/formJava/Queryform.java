@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import com.mysql.jdbc.Statement;
 import Background.DBManager;
+import Background.MessageReceiver;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,7 +25,7 @@ public class Queryform implements Initializable{
 	
 	@FXML
 	private Button SendButton;
-
+	TextArea textArea = MessageReceiver.getMessageReceiver().getTextArea();
 	private DBManager dbManager = DBManager.getDBManager();
 	
 	@Override
@@ -42,6 +43,8 @@ public class Queryform implements Initializable{
 			else
 				Querylog.setText(Querylog.getText() + "\nQuery Failed!\n");
 			
+			textArea.setText(textArea.getText() + "\n"
+					+ MessageReceiver.getMessageReceiver().getSdf().format(MessageReceiver.getMessageReceiver().getGc().getTime()) + " QueryForm Äõ¸®¹® Àü¼ÛµÊ");
 		});
 	}
 }

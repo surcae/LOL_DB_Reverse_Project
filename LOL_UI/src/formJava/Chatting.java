@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import Background.DBManager;
+import Background.MessageReceiver;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -21,7 +22,7 @@ public class Chatting implements Initializable{
 	
 	private String SelectedName = null;
 	private String myText = null;
-	
+	TextArea textArea = MessageReceiver.getMessageReceiver().getTextArea();
 	private DBManager dbManager = DBManager.getDBManager();
 	
 	public Chatting() {
@@ -88,6 +89,8 @@ public class Chatting implements Initializable{
 		System.out.println(tmp);
 		if(0 < dbManager.ExecuteUpdate(tmp)) {
 			chatarea.setText(chatarea.getText() + SelectedName + ": " + myText + "\n");
+			textArea.setText(textArea.getText() + "\n"
+					+ MessageReceiver.getMessageReceiver().getSdf().format(MessageReceiver.getMessageReceiver().getGc().getTime()) + " ChatForm Chatting Send");
 		}
 		else { // 적용 불가
 			System.out.println("쿼리문이 수행되지 않음");

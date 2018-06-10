@@ -5,6 +5,7 @@ import net.rithms.riot.constant.Platform;
 
 import Background.APIManager;
 import Background.DBManager;
+import Background.MessageReceiver;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
@@ -20,7 +22,7 @@ public class Search implements Initializable{
 	@FXML private TextField searchid;
 	@FXML private ImageView tier;
 	@FXML private Label info2;
-	
+	TextArea textArea = MessageReceiver.getMessageReceiver().getTextArea();
 	String Name, Account, ID, Level;
 	boolean isSelected = false;
 	DBManager dbManager = DBManager.getDBManager();
@@ -65,6 +67,8 @@ public class Search implements Initializable{
 		
 		dbManager.ExecuteUpdate("INSERT INTO USER(UserID, Name, AccountID, Level) VALUES ('"+ID+"', '"+Name+"', '"+Account+"', '"+Level+"');");
 		System.out.println("SaveToDB Complete!");
+		textArea.setText(textArea.getText() + "\n"
+				+ MessageReceiver.getMessageReceiver().getSdf().format(MessageReceiver.getMessageReceiver().getGc().getTime()) + " SearchForm 데이터 DB에 저장");
 	}
 
 	public void SearchWithAPI() throws RiotApiException {
@@ -89,5 +93,7 @@ public class Search implements Initializable{
 		Level = String.valueOf(APIManager.getAPIManager().getSummoner().getSummonerLevel());
 		
 		isSelected = true;
+		textArea.setText(textArea.getText() + "\n"
+				+ MessageReceiver.getMessageReceiver().getSdf().format(MessageReceiver.getMessageReceiver().getGc().getTime()) + " SearchForm 롤 서버에서 조회함");
 	}
 }
